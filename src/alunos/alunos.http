@@ -1,0 +1,32 @@
+### list aluno
+GET http://localhost:3000/alunos 
+
+### get aluno
+GET http://localhost:3000/alunos/aln_
+
+### create aluno
+POST http://localhost:3000/alunos
+Content-Type: application/json
+
+{
+    "cpf": "123452345",
+    "nome": "Periclenton Rasta",
+    "nascimento": "1995-12-25",
+    "email": "23452345@hotmail.com",
+    "telefone": "73991857629",
+    "enderecoResidencia": "Ice Head House",
+    "enderecoEscola": "Galera Deboxada",
+    "turnoEstudo": "Noturno",
+    "codigoTurma": "Not01",
+}
+
+### update aluno
+PATCH http://localhost:3000/alunos/aln_xQOdH1dadfLHcy2cmBqAl
+Content-Type: application/json
+
+{
+
+}
+
+### delete aluno
+DELETE http://localhost:3000/alunos/aln_yg91FAJhR4-tHzJgX6HdW
