@@ -12,6 +12,7 @@ export class AlunosService {
     private readonly repository: Repository<Aluno>
   ) {}
 
+  // Método para criar um novo aluno
   async create(dto: CreateAlunoDto) {
     // Verifica a existência de CPF e e-mail únicos
     const existingAluno = await this.repository.findOne({
@@ -28,14 +29,17 @@ export class AlunosService {
     return this.repository.save(aluno);
   }
 
+  // Método para buscar todos os alunos
   findAll() {
     return this.repository.find();
   }
 
+  // Método para buscar um aluno pelo ID
   findOne(id: string) {
     return this.repository.findOneBy({ id });
   }
 
+  // Método para atualizar os dados de um aluno
   async update(id: string, dto: UpdateAlunoDto) {
     const aluno = await this.repository.findOneBy({ id });
     if (!aluno) {
@@ -61,6 +65,7 @@ export class AlunosService {
     return result;
   }
 
+  // Método para remover um aluno
   async remove(id: string) {
     const aluno = await this.repository.findOneBy({ id });
     if (!aluno) return null;

@@ -6,15 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    // Configura o TypeORM com SQLite
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'transporte_escolar_db',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      database: 'transporte_escolar_db', // Nome do banco de dados
+      entities: [__dirname + '/**/*.entity{.ts,.js}'], // Caminho para as entidades
+      synchronize: true, // Sincroniza o banco de dados automaticamente
     }),
-    AlunosModule],
-  controllers: [AppController],
-  providers: [AppService],
+    AlunosModule
+  ],
+  controllers: [AppController], // Controladores registrados no módulo
+  providers: [AppService], // Serviços registrados no módulo
 })
-// exports
 export class AppModule {}

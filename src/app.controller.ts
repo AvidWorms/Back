@@ -1,12 +1,21 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, InternalServerErrorException, Logger } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
+  private readonly logger = new Logger(AppController.name);
+
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  // Rota GET para verificar o status da aplicação
+  @Get('status')
+  getStatus() {
+    try {
+      this.logger.log('Requisição para a rota de status');
+      return this.appService.getStatus();
+    } catch (error) {
+      this.logger.error('Erro na rota de status', error.stack);
+      throw new InternalServerErrorException(this.appService.handleError(error));
+    }
   }
 }

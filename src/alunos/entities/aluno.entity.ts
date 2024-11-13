@@ -1,8 +1,8 @@
 import { BeforeInsert, Column, Entity, PrimaryColumn, Unique } from "typeorm";
 const { nanoid } = require("nanoid");
 
-@Unique(['cpf', 'email'])
-@Entity('alunos')
+@Unique(['cpf', 'email']) // Garante que os campos CPF e email sejam únicos
+@Entity('alunos') // Define a entidade 'alunos'
 export class Aluno {
     @PrimaryColumn()
     id: string;
@@ -77,6 +77,6 @@ export class Aluno {
 
     @BeforeInsert()
     generateId() {
-        this.id = `aln_${nanoid()}`;
+        this.id = `aln_${nanoid()}`; // Gera um ID único antes de inserir.
     }
 }

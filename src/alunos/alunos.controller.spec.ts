@@ -14,6 +14,7 @@ describe('AlunosController', () => {
     controller = module.get<AlunosController>(AlunosController);
   });
 
+  // Verifica se o controlador está definido
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
