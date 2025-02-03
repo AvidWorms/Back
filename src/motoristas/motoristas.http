@@ -1,0 +1,39 @@
+### list motorista
+GET http://localhost:3000/motoristas
+
+### get motorista
+GET http://localhost:3000/motoristas/mtr_vrnpuyvs-u3wE-9LdNM3z
+
+### create motorista
+POST http://localhost:3000/motoristas
+Content-Type: application/json
+
+{
+    "cpf": "05324869511",
+    "cnh": "12121212",
+    "nome": "Luiz  Gustavo Santos da Silva",
+    "nascimento": "2000-09-12",
+    "email": "luizcasttor@gmail.com",
+    "telefone": "77991186659",
+    "turnoTrabalho": "M",
+    "rotaTrabalho": "rolandia para partenogênesis",
+    "cepResidencial": "45028-528",
+    "bairroResidencial": "Candeias",
+    "logradouroResidencial": "Avenida Erathostenes Menezes",
+    "numeroResidencial": "645",
+    "complementoResidencial": "Apto. 402",
+    "cidadeResidencial": "Vitória da Conquista",
+    "estadoResidencial": "BA",
+    "veiculoId": "vcl_xalmF_MgcYNZkM7EenROd"
+}
+
+### update motorista
+PATCH http://localhost:3000/motoristas/mtr_G3j7QFF8iD0hBWX30udor
+Content-Type: application/json
+
+{
+ "veiculoId": null
+}
+
+### delete motorista
+DELETE http://localhost:3000/motoristas/mtr_cek2kRy1KQ7CMGET05d2K

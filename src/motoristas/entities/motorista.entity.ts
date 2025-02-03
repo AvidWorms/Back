@@ -1,15 +1,18 @@
 import { BeforeInsert, Column, Entity, PrimaryColumn, Unique, OneToOne, JoinColumn } from "typeorm";
-import { Motorista } from '../../motoristas/entities/motorista.entity';
+import { Veiculo } from '../../veiculos/entities/veiculo.entity';
 const { nanoid } = require("nanoid");
 
-@Unique(['cpf', 'email']) // Garante que os campos CPF e email sejam únicos
-@Entity('alunos') // Define a entidade 'alunos'
-export class Aluno {
+@Unique(['cpf', 'email', 'cnh']) // Garante que os campos CPF e email sejam únicos
+@Entity('motoristas') // Define a entidade 'motoristas'
+export class Motorista {
     @PrimaryColumn()
     id: string;
 
     @Column()
     cpf: string;
+    
+    @Column()
+    cnh: string;
 
     @Column()
     nome: string;
@@ -24,10 +27,10 @@ export class Aluno {
     telefone: string;
 
     @Column()
-    turnoEstudo: string;
-
+    turnoTrabalho: string;
+    
     @Column()
-    codigoTurma: string;
+    rotaTrabalho: string;
 
     // Endereço Residencial
     @Column()
@@ -51,33 +54,12 @@ export class Aluno {
     @Column()
     estadoResidencial: string;
 
-    // Endereço da Instituição
-    @Column()
-    nomeInstituicao: string;
-
-    @Column()
-    cepInstituicao: string;
-
-    @Column()
-    bairroInstituicao: string;
-
-    @Column()
-    logradouroInstituicao: string;
-
-    @Column()
-    numeroInstituicao: string;
-
-    @Column({ nullable: true })
-    complementoInstituicao: string;
-
-    @Column()
-    cidadeInstituicao: string;
-
-    @Column()
-    estadoInstituicao: string;
+    @OneToOne(() => Veiculo, { nullable: true, onDelete: 'SET NULL' })
+    @JoinColumn()
+    veiculo: Veiculo;
 
     @BeforeInsert()
     generateId() {
-        this.id = `aln_${nanoid()}`; // Gera um ID único antes de inserir.
+        this.id = `mtr_${nanoid()}`; // Gera um ID único antes de inserir.
     }
 }

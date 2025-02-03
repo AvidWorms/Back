@@ -9,16 +9,17 @@ POST http://localhost:3000/alunos
 Content-Type: application/json
 
 {
-    "cpf": "123452345",
+    "cpf": "000000",
     "nome": "Periclenton Rasta",
     "nascimento": "1995-12-25",
-    "email": "23452345@hotmail.com",
+    "email": "000000@hotmail.com",
     "telefone": "73991857629",
     "enderecoResidencia": "Ice Head House",
     "enderecoEscola": "Galera Deboxada",
     "turnoEstudo": "Noturno",
-    "codigoTurma": "Not01",
+    "codigoTurma": "Not01"
 }
+
 
 ### update aluno
 PATCH http://localhost:3000/alunos/aln_xQOdH1dadfLHcy2cmBqAl

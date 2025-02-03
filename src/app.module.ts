@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AlunosModule } from './alunos/alunos.module';
+import { MotoristasModule } from './motoristas/motoristas.module';
+import { VeiculosModule } from './veiculos/veiculos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -13,7 +15,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Caminho para as entidades
       synchronize: true, // Sincroniza o banco de dados automaticamente
     }),
-    AlunosModule
+    AlunosModule,
+    MotoristasModule,
+    VeiculosModule
   ],
   controllers: [AppController], // Controladores registrados no módulo
   providers: [AppService], // Serviços registrados no módulo
